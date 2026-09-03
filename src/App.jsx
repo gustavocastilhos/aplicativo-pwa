@@ -5,6 +5,7 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import Cabecalho from './componentes/Cabecalho/Cabecalho'
 import Principal from './componentes/principal/principal'
+import Rodape from './componentes/rodape/rodape'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
 <div>
   <Cabecalho/>
   <Principal/>
+  <Rodape/>
   <header>Cabeçalho</header>
   <main>Conteudo Principal</main>
   <footer>Rodapé</footer>
