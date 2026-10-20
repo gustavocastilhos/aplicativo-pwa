@@ -4,12 +4,12 @@ import "./PaginaListaProdutos.css";
 const produtos = [
   {
     nome: "Smartphone Samsung",
-    preco: 2999,
+    preco: 3997.98,
     cores: ["#29d8d5", "#252a34", "#fc3766"],
   },
   {
     nome: "Notebook Acer",
-    preco: 4999,
+    preco: 12599.89,
     cores: ["#ffd045", "#d4394b", "#f37c59"],
   },
   {
@@ -21,18 +21,31 @@ const produtos = [
 
 function PaginaListaProdutos() {
   return (
-    <Principal titulo="Lista de Produtos">
+    <Principal titulo="Lista de Produtos" voltarPara="/">
       {produtos.map((itemProduto, index) => {
         return (
-          <div key={index} className="PaginaListProdutos_item">
-            <strong>Produto:</strong>
-            {itemProduto.nome}
-            <br />
+          <div key={index} className="PaginaListaProdutos_item">
+            <h3>{itemProduto.nome}</h3>
             <strong>Preço:</strong>
-            {itemProduto.preco}
+            {itemProduto.preco.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
             <br />
             <strong>Cores:</strong>
-            {itemProduto.cores}
+
+            <div className="PaginaListaProdutos_cores">
+              {itemProduto.cores.map((itemCor) => {
+                return (
+                  <div
+                    className="PaginaListaProdutos_cor-item"
+                    style={{
+                      backgroundColor: itemCor,
+                    }}
+                  />
+                );
+              })}
+            </div>
           </div>
         );
       })}
