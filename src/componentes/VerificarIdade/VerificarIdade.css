@@ -1,0 +1,14 @@
+.verificar-idade {
+  color: yellow;
+  text-align: center;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.verificar-idade.maior {
+  background-color: green;
+}
+
+.verificar-idade.menor {
+  background-color: red;
+}

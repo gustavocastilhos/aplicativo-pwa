@@ -1,0 +1,6 @@
+.numeros-impares {
+  background-color: yellow; /* fundo amarelo */
+  color: blue;              /* letra azul */
+  padding: 20px 40px;
+  list-style-position: inside;
+}

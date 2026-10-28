@@ -1,0 +1,6 @@
+.soma {
+  background-color: brown; /* fundo marrom */
+  color: white;            /* texto na cor branca */
+  text-align: center;      /* texto centralizado */
+  padding: 10px;           /* espaçamento interno */
+}

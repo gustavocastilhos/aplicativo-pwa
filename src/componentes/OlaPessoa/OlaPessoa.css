@@ -1,0 +1,8 @@
+.OlaPessoa {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 111, 28);
+  color: rgb(255, 255, 255);
+
+  margin: 16px;
+}

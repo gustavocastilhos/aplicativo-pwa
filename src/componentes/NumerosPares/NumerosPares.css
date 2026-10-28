@@ -1,0 +1,6 @@
+.numeros-pares {
+  background-color: blue; /* fundo azul */
+  color: yellow;           /* letra amarela */
+  padding: 20px 40px;      /* espaçamento interno */
+  list-style-position: inside;
+}

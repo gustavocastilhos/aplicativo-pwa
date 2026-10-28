@@ -1,0 +1,6 @@
+.divisao {
+  background-color: orange; /* fundo laranja */
+  color: blue;              /* texto na cor azul */
+  text-align: center;       /* texto centralizado */
+  padding: 10px;            /* espaçamento interno */
+}

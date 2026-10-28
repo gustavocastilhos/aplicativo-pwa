@@ -1,0 +1,10 @@
+.Minuto-atual {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(230, 61, 193);
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,8 @@
+.DataCompleta-atual {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(190, 103, 21);
+  color: rgb(255, 255, 255);
+
+  margin: 16px;
+}
