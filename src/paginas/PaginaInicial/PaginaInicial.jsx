@@ -8,18 +8,25 @@ function PaginaInicial() {
 
   return (
     <Principal titulo="Página Inicial">
-      <BotaoCustomizado
+    <BotaoCustomizado
         tipo="primario"
         aoClicar={() => navigate("/lista-produtos")}
       >
         Lista de Produtos
       </BotaoCustomizado>
 
-      <BotaoCustomizado
+    <BotaoCustomizado
         tipo="secundario"
         aoClicar={() => navigate("/fuscao-preto")}
       >
         Lista de Tarefas
+      </BotaoCustomizado>
+
+    <BotaoCustomizado
+        tipo="primario"
+        aoClicar={() => navigate("/cadastro-cliente")}
+      >
+        Cadastro de Cliente
       </BotaoCustomizado>
     </Principal>
   );
