@@ -3,14 +3,15 @@ import BotaoCustomizado from "../../componentes/BotaoCustomizado/BotaoCustomizad
 import CampoCustomizado from "../../componentes/CampoCustomizado/CampoCustomizado";
 import Principal from "../../componentes/Principal/Principal";
 import { toast } from 'react-toastify';
+import { formatarComMascara, MASCARA_TELEFONE } from "../utils/formatarComMascara";
 
 function PaginaCadastroCliente() { 
-    const {nome, setNome} = useState("");
-    const {email, setEmail} = useState("");
-    const {dataNascimento, setDataNascimento} = useState("");
-    const {telefone, setTelefone} = useState("");
-    const {cpf, setCpf} = useState("");
-
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [dataNascimento, setDataNascimento] = useState("");
+    const [telefone, setTelefone] = useState("");
+    const [cpf, setCpf] = useState("");
+    
     const cadastrarCliente = () => {
         const cliente = {
             nome,
@@ -21,7 +22,6 @@ function PaginaCadastroCliente() {
         };
         toast.success("Cliente cadastrado com sucesso!");
 
-        localStorage.setItem("cliente", JSON.stringify(cliente));  
 
     };
 
@@ -47,9 +47,10 @@ function PaginaCadastroCliente() {
         />
     <CampoCustomizado 
         label="Telefone" 
+        type="tel"
         placeholder="Digite o telefone do cliente"  
         value={telefone} 
-        onChange={(e) => setTelefone(e.target.value)} 
+        onChange={(e) => setTelefone(formatarComMascara(e.target.value, MASCARA_TELEFONE))} 
         />
     <CampoCustomizado 
         label="CPF" 
