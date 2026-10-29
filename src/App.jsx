@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import "./App.css";
 import Cabecalho from "./componentes/Cabecalho/Cabecalho";
 import Rodape from "./componentes/Rodape/Rodape";
-import Roteador from "./Roteador";
+import Roteador from './roteador';
 
 function App() {
   return (

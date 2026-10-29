@@ -3,7 +3,9 @@ import BotaoCustomizado from "../../componentes/BotaoCustomizado/BotaoCustomizad
 import CampoCustomizado from "../../componentes/CampoCustomizado/CampoCustomizado";
 import Principal from "../../componentes/Principal/Principal";
 import { toast } from 'react-toastify';
-import { formatarComMascara, MASCARA_TELEFONE } from "../utils/formatarComMascara";
+import { formatarComMascara, MASCARA_CPF, MASCARA_TELEFONE } from "../utils/formatarComMascara";
+import validarCPF from "../utils/validarCPF";
+import validarEmail from "../utils/validarEMAIL";
 
 function PaginaCadastroCliente() { 
     const [nome, setNome] = useState("");
@@ -11,19 +13,33 @@ function PaginaCadastroCliente() {
     const [dataNascimento, setDataNascimento] = useState("");
     const [telefone, setTelefone] = useState("");
     const [cpf, setCpf] = useState("");
-    
-    const cadastrarCliente = () => {
-        const cliente = {
-            nome,
-            email,
-            dataNascimento,
-            telefone,
-            cpf
-        };
-        toast.success("Cliente cadastrado com sucesso!");
 
+const cadastrarCliente = () => {
+    if(!nome.trim() || !email.trim() || !validarEmail(email)) {
+        toast.error("Preencha o campo nome e email corretamente!");
+        return;
+    }
+    if(!dataNascimento) {
+        toast.error("Preencha o campo data de nascimento!");
+        return;
+    }
+    if(!telefone.trim()) {
+        toast.error("Preencha o campo telefone!");
+        return;
+    }
+    if(cpf.trim() && !validarCPF(cpf)) {
+        toast.error("CPF inválido!");
+        return;
+    }
 
+    const cliente = {
+        // propriedades do cliente aqui
     };
+
+    toast.success("Cliente cadastrado com sucesso!");
+};
+
+    
 
     return <Principal titulo="Cadastro de Cliente" voltarPara="/">
     <CampoCustomizado 
@@ -56,7 +72,7 @@ function PaginaCadastroCliente() {
         label="CPF" 
         placeholder="Digite o cpf do cliente"  
         value={cpf} 
-        onChange={(e) => setCpf(e.target.value)} 
+        onChange={(e) => setCpf(formatarComMascara(e.target.value, MASCARA_CPF))}
         />
 <BotaoCustomizado tipo="primario" aoClicar={cadastrarCliente}>
     Cadastrar
