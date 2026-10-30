@@ -1,8 +1,8 @@
-import CampoCustomizado from "../../componentes/CampoCustomizado/CampoCustomizado";
 import Principal from "../../componentes/Principal/Principal";
 import { buscarClientesDoLocalStorage } from "../../servicos/clientes.servico";
 import "./PaginaListaClientes.css";
-
+import { FaPencilAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 
 
 function PaginaListaClientes() {
@@ -15,8 +15,9 @@ function PaginaListaClientes() {
             <div className="PaginaListaClientes_item">
                 <h3>{cliente.nome}</h3>
                 <h4>{cliente.telefone}</h4>
-                {cliente.email}
-
+                <p>{cliente.email} </p>
+                <FaPencilAlt />
+                <FaTrashAlt />
             </div>
         ))}
 
