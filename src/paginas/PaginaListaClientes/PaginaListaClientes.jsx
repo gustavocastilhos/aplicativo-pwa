@@ -1,23 +1,26 @@
 import CampoCustomizado from "../../componentes/CampoCustomizado/CampoCustomizado";
 import Principal from "../../componentes/Principal/Principal";
 import { buscarClientesDoLocalStorage } from "../../servicos/clientes.servico";
+import "./PaginaListaClientes.css";
 
 
 
 function PaginaListaClientes() {
 
-const clientes = buscarClientesDoLocalStorage();
+    const clientes = buscarClientesDoLocalStorage();
 
     return <Principal titulo="Lista de Clientes" voltarPara="/">
 
-    
-        <div>
-            <ul>
-                {clientes.map((cliente, index) => (    
-                    <li key={index}>{cliente.nome}  -  {cliente.email}</li>
-                ))}
-            </ul>
-      </div>  
+        {clientes.map((cliente) => (
+            <div className="PaginaListaClientes_item">
+                <h3>{cliente.nome}</h3>
+                <h4>{cliente.telefone}</h4>
+                {cliente.email}
+
+            </div>
+        ))}
+
+
     </Principal>
 }
 
