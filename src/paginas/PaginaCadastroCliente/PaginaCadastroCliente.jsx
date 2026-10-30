@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { formatarComMascara, MASCARA_CPF, MASCARA_TELEFONE } from "../utils/formatarComMascara";
 import validarCPF from "../utils/validarCPF";
 import validarEmail from "../utils/validarEMAIL";
+import { cadastrarClienteNoLocalStorage } from "../../servicos/clientes.servico";
 
 function PaginaCadastroCliente() { 
     const [nome, setNome] = useState("");
@@ -33,9 +34,13 @@ const cadastrarCliente = () => {
     }
 
     const cliente = {
-        // propriedades do cliente aqui
+        nome,
+        email,
+        dataNascimento,
+        telefone,
+        cpf
     };
-
+    cadastrarClienteNoLocalStorage(cliente);
     toast.success("Cliente cadastrado com sucesso!");
 };
 
