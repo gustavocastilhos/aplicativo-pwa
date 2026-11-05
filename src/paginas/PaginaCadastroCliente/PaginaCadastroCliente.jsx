@@ -7,9 +7,10 @@ import { formatarComMascara, MASCARA_CPF, MASCARA_TELEFONE } from "../utils/form
 import validarCPF from "../utils/validarCPF";
 import validarEmail from "../utils/validarEMAIL";
 import { buscarClientesDoLocalStorage, cadastrarClienteNoLocalStorage } from "../../servicos/clientes.servico";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function PaginaCadastroCliente() {
+    const navigate = useNavigate();
     const [formclientes, setFormeClientes] = useState({
         id: "",
         nome: "",
@@ -51,15 +52,10 @@ function PaginaCadastroCliente() {
 
         const cliente = {
             ...formclientes,
-            id: Date.now(),
-            nome: formclientes.nome,
-            email: formclientes.email,
-            dataNascimento: formclientes.dataNascimento,
-            telefone: formclientes.telefone,
-            cpf: formclientes.cpf
         };
         cadastrarClienteNoLocalStorage(cliente);
         toast.success("Cliente cadastrado com sucesso!");
+        navigate("/lista-clientes");
     }
 
 const titulo = formclientes.id ? "Editar Cliente" : "Cadastro de Cliente";

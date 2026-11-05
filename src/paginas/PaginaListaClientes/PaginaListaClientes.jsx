@@ -7,9 +7,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { use, useState } from "react";
 import { salvarNoLocalStorage } from "../../servicos/localstorage.servico";
 import { useNavigate } from "react-router-dom";
-
-
-
+import { IoMdAddCircle } from "react-icons/io";
 
 
 
@@ -49,7 +47,9 @@ function PaginaListaClientes() {
                 </div>
             </div>
         ))}
-
+<div className="PaginaListaClientes_adicionar">
+    <IoMdAddCircle size={24} onClick={() => navigate("/cadastro-cliente")} />
+</div>
 
     </Principal>
 }

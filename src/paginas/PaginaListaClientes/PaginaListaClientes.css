@@ -7,3 +7,26 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 }
+
+.PaginaListaClientes_adicionar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: #5c6bc0;
+  color: #ffffff;
+  font-size: 28px;
+  text-decoration: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+
+  /* Posicionamento no canto inferior direito */
+  position: fixed; /* Mantém o botão fixo mesmo ao fazer scroll */
+  bottom: 80px; /* Distância do fundo (ajustado para ficar acima do rodapé) */
+  right: 20px; /* Distância da margem direita */
+  z-index: 1000; /* Garante que fica por cima das listas de clientes */
+}
