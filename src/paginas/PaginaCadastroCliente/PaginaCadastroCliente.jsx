@@ -58,7 +58,7 @@ function PaginaCadastroCliente() {
         navigate("/lista-clientes");
     }
 
-const titulo = formclientes.id ? "Editar Cliente" : "Cadastro de Cliente";
+    const titulo = formclientes.id ? "Editar Cliente" : "Cadastro de Cliente";
 
     return <Principal titulo={titulo} voltarPara="/">
         <CampoCustomizado
@@ -93,6 +93,37 @@ const titulo = formclientes.id ? "Editar Cliente" : "Cadastro de Cliente";
             value={formclientes.cpf}
             onChange={(e) => setFormeClientes({ ...formclientes, cpf: formatarComMascara(e.target.value, MASCARA_CPF) })}
         />
+        <CampoCustomizado
+            type="file"
+            accept="image/*"
+            label="Foto"
+            onChange={(e) => {
+                const imagem = e.target.files[0];
+                if (imagem) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        setFormeClientes({ ...formclientes, foto: event.target.result });
+                    };
+                    reader.readAsDataURL(imagem);
+                }
+            }}
+        />
+
+        {formclientes.foto && (
+            <div>
+                <img
+                    src={formclientes.foto}
+                    alt="Foto do Cliente"
+                    style={{
+                        width: "150px",
+                        height: "150px",
+                        objectFit: "cover",
+                        borderRadius: "8px",
+                    }}
+                />
+            </div>
+        )}
+
         <BotaoCustomizado tipo="primario" aoClicar={cadastrarCliente}>
             Cadastrar
         </BotaoCustomizado>

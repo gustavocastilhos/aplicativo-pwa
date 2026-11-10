@@ -24,9 +24,8 @@ align-items: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: all 0.2s ease-in-out;
 
-  /* Posicionamento no canto inferior direito */
-  position: fixed; /* Mantém o botão fixo mesmo ao fazer scroll */
-  bottom: 80px; /* Distância do fundo (ajustado para ficar acima do rodapé) */
-  right: 20px; /* Distância da margem direita */
+  position: fixed; 
+  bottom: 80px; 
+  right: 20px; 
   z-index: 1000; /* Garante que fica por cima das listas de clientes */
 }
