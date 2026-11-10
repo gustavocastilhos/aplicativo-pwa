@@ -8,6 +8,7 @@ import { use, useState } from "react";
 import { salvarNoLocalStorage } from "../../servicos/localstorage.servico";
 import { useNavigate } from "react-router-dom";
 import { IoMdAddCircle } from "react-icons/io";
+import CampoCustomizado from "../../componentes/CampoCustomizado/CampoCustomizado";
 
 
 
@@ -15,6 +16,7 @@ import { IoMdAddCircle } from "react-icons/io";
 function PaginaListaClientes() {
     const navigate = useNavigate();
     const [clientes, setClientes] = useState(buscarClientesDoLocalStorage());
+    const [filtro, setFiltro] = useState("");
 
     const excluirCliente = (cliente) => {
      if (confirm(`Deseja realmente excluir o cliente ${cliente.nome}?`)) {
@@ -31,9 +33,20 @@ function PaginaListaClientes() {
         navigate("/cadastro-cliente/" + cliente.id);
     }
 
-    return <Principal titulo="Lista de Clientes" voltarPara="/">
+    const clientesFiltrados = clientes.filter((cliente) => {
+       return cliente.nome.toLowerCase().includes(filtro.toLowerCase())
+    });
 
-        {clientes.map((cliente) => (
+    return <Principal titulo="Lista de Clientes" voltarPara="/">
+        <CampoCustomizado
+            type="search"
+            label="Buscar Cliente"
+            placeholder="Digite o nome do cliente"
+            value={filtro}
+            onChange={(e) => setFiltro(e.target.value)} 
+        />
+
+        {clientesFiltrados.map((cliente) => (
             <div className="PaginaListaClientes_item">
                 <div>
                 <h3>{cliente.nome}</h3>
